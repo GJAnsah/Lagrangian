@@ -7,7 +7,24 @@ Created on Thu Sep 16 20:23:07 2021
 from sympy import *
 import math
 
+
 def delta(j,a,x,N):
+    '''
+    Parameters
+    ----------
+    j : int. 
+        the jth lagrange polynomial
+    a : sympy symbol
+        the dependent term in the lagrange polynomial
+    x : list
+        x values from the original function
+    N : int
+
+    Returns
+    -------
+    The lagrange polynomial for any given j
+
+    '''
     num=1
     den=1
     for i in range(N):
@@ -16,18 +33,33 @@ def delta(j,a,x,N):
             den*=(x[j]-x[i])
     return (num/den)
 
-def Lagarange(x,y):
+
+def Lagrange(x,y):
+    '''
+    Parameters
+    ----------
+    x : list
+        dependent variable values
+    y : list
+        independent variable values
+
+    Returns
+    -------
+    The lagrangian approximation of the function
+
+    '''
     N=len(x)
     a=Symbol('a')
     f=0
-    for i in range(len(x)):
-        answer= (delta(i,a,x,N))
-        f+=y[i]*answer
+    for j in range(len(x)):
+        answer= (delta(j,a,x,N))
+        f+=y[j]*answer
     return (simplify(f))
+
+
 
 #test
 x=[-3,-2,-1,0,1,2,3]
 y=[math.exp(i) for i in x]
 
-
-print(Lagarange(x,y))
+print(Lagrange(x,y))
