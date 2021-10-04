@@ -59,6 +59,10 @@ def Lagrange(x,y):
 
 
 #test
+'''
+enter corresponding x and y values of the function to approximate.
+In this case, the exponential function from -3 to 3
+'''
 x=[-3,-2,-1,0,1,2,3]
 y=[math.exp(i) for i in x]
 
