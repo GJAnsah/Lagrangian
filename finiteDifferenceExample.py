@@ -35,6 +35,11 @@ def Tmap(T,iters,Errors):
     ax1.set_xlabel('$Y_{j}$')
     ax1.set_ylabel('$X_{i}$')
     ax1.set_title("Temperature profile")
+    
+    ticks=[round(i/mesh,2) for i in ax1.get_xticks()]
+    
+    ax1.set_xticklabels(ticks)
+    ax1.set_yticklabels(ticks)
 
    
     ax2.clear()
@@ -124,7 +129,7 @@ def Temp_Profile(mesh,method,w=1):
     iterations=[]
     Errors=[]
     
-    iteration=0
+    iteration=1
     
 
     y=[j*dy for j in range(n_col)]
