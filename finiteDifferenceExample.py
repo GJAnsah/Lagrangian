@@ -48,6 +48,9 @@ def Tmap(T,iters,Errors):
     ax2.set_ylabel('Error')
     ax2.set_title("Convergence History")
     
+    title='method = ' + method+'  mesh size= '+str(mesh)+' w= '+str(w)
+    fig1.suptitle(title)
+    
     plt.show()
     
 
